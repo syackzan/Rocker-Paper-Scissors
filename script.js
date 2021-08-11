@@ -6,7 +6,7 @@ var playerHand;
 var aiHand;
 var value = 3;
 
-
+//Generate Computer Selection //
 function computerGen () {
     
     var array = ["R", "P", "S"]
@@ -20,14 +20,18 @@ function computerGen () {
     alert(aiHand);
 }
 
+// Play Game Function //
 function playGame () {
 
+// Prompt Player Hands //
 var playerHand = prompt ("Enter R, P, or S");
 console.log (playerHand);
 
+//Confirming AI's Hand //
 computerGen();
 console.log (aiHand);
 
+// Did you win or lose if statement //
 if(playerHand == "P" || playerHand == "p") {
     if(aiHand == "S" || playerHand == "s") {
         lossCount = lossCount + 1;
@@ -63,6 +67,7 @@ if(playerHand == "P" || playerHand == "p") {
     }   
 } 
 
+// Alert //
 alert ("Win Count: " + winCount + 
     " Lose Count: " + lossCount + 
     " Tie Count: " + tieCount);
