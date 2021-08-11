@@ -6,60 +6,79 @@ var playerHand;
 var aiHand;
 var value = 3;
 
-prompt ("Enter R, P, or S", playerHand);
 
-var array = ["R", "P", "S"]
+function computerGen () {
+    
+    var array = ["R", "P", "S"]
 
-function getRandomInt (value){
-    return Math.floor(Math.random() * value);
+    function getRandomInt (value){
+        return array[Math.floor(Math.random() * value)];
+    }
+
+    aiHand = getRandomInt (value);
+
+    alert(aiHand);
 }
 
-aiHand = getRandomInt (value);
+function playGame () {
 
-alert(aiHand);
+var playerHand = prompt ("Enter R, P, or S");
+console.log (playerHand);
 
-function playGame (playerHand, aiHand) {
+computerGen();
+console.log (aiHand);
 
-/* if (playerHand == aiHand) {
-    //Tie
-    //Add to Tie
-} else if (playerHand < aiHand) {
-
-} */
-
-if(playerHand == "P" || "p") {
-    if(aiHand == "S" || "s") {
+if(playerHand == "P" || playerHand == "p") {
+    if(aiHand == "S" || playerHand == "s") {
         lossCount = lossCount + 1;
         alert ("You Lost");
     }else if(aiHand == "R") {
         winCount = winCount + 1;
-        alert ("You Win")
+        alert ("You Win");
     }else {
         tieCount = tieCount + 1;
-        alert ("You Tie")
+        alert ("You Tie");
     }
-}
-else  if(playerHand == "S") {
+} else  if(playerHand == "S") {
     if(aiHand == "R") {
         lossCount = lossCount + 1;
+        alert("You Lose");
     }else if(aiHand == "P") {
         winCount = winCount + 1;
+        alert("You Win");
     }else {
         tieCount = tieCount + 1;
+        alert("You Tie");
     }
-}
-else(playerHand == "R") 
+} else {
     if(aiHand == "P") {
         lossCount = lossCount + 1;
+        alert("You Lose");
     }else if(aiHand == "S") {
         winCount = winCount + 1;
+        alert("You Win");
     }else {
         tieCount = tieCount + 1;
-    }
+        alert("You Tie");
+    }   
+} 
+
+alert ("Win Count: " + winCount + 
+    " Lose Count: " + lossCount + 
+    " Tie Count: " + tieCount);
+
+    /*if (confirm("Do you want to play again?") == true){
+        playGame();
+    } else {
+        break;
+    } */
+    
+} 
+
+
+while(true){
+    playGame()
 }
 
-while (true){
 
-    playGame(playerHand, aiHand)
 
-}
