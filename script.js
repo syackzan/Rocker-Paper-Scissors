@@ -67,17 +67,20 @@ alert ("Win Count: " + winCount +
     " Lose Count: " + lossCount + 
     " Tie Count: " + tieCount);
 
-    /*if (confirm("Do you want to play again?") == true){
+    var playagain = confirm("Do you want to play again?");
+
+    if (playagain === true){
         playGame();
     } else {
-        break;
-    } */
+
+    }
     
 } 
 
 
 while(true){
     playGame()
+    break;
 }
 
 
